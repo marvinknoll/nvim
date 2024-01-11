@@ -3,4 +3,4 @@
 -- Add any additional options here
 
 -- center cursor on window
-vim.wo.scrolloff = 999
+vim.o.scrolloff = 999
