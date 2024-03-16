@@ -19,6 +19,12 @@ local function key(fr, to, where, desc)
   vim.keymap.set(where, fr, to, { desc = desc })
 end
 
+-- Rename word that you are on top of
+vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+
+-- make file executable
+vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
+
 -- Diagnostics
 local function toggle_diagnostics()
   if vim.diagnostic.is_disabled() then
