@@ -32,9 +32,9 @@ return {
     vim.o.foldenable = true
   end,
   config = function()
-    require("ufo").setup {
+    require("ufo").setup({
       close_fold_kinds = { "imports" },
-    }
+    })
 
     vim.api.nvim_create_autocmd("LspAttach", {
       desc = "Setup Ufo `K` with LSP hover",
@@ -50,4 +50,3 @@ return {
       end,
     })
   end,
-}
