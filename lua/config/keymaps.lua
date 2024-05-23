@@ -14,3 +14,18 @@ vim.keymap.set("x", "<leader>p", [["_dP]])
 -- yank into system clipblard with leader y and leader Y
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
+
+local function key(fr, to, where, desc)
+  vim.keymap.set(where, fr, to, { desc = desc })
+end
+
+-- Diagnostics
+local function toggle_diagnostics()
+  if vim.diagnostic.is_disabled() then
+    vim.diagnostic.enable()
+  else
+    vim.diagnostic.disable()
+  end
+end
+
+key("<C-e>", toggle_diagnostics, { "i", "n", "v" }, "Toggle diagnostics")
